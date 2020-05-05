@@ -1,0 +1,40 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/helpers/children_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/helpers/chores_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/helpers/tasks_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/models/chore.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/models/child.rb": [
+        1,
+        null
+      ],
+      "/Users/Becca/Documents/495/Chore Tracker/UpdatedChoreTracker/ChoreTracker_starter/app/models/task.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1505707012
+  },
+  "Unit Tests": {
+    "coverage": {
+    },
+    "timestamp": 1505706939
+  }
+}

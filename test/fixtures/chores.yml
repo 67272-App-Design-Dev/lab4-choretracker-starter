@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  child_id: 1
+  task_id: 1
+  due_on: 2014-02-17
+  completed: false
+
+two:
+  child_id: 1
+  task_id: 1
+  due_on: 2014-02-17
+  completed: false

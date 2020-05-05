@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChoreTracker :: <%= controller.controller_name.capitalize %></title>
+  <link rel="shortcut icon" href="/gc_favicon.ico" type="image/x-icon" />
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <%= link_to(image_tag('qu_vu.jpg'), chores_path) %>
+    </div>
+    <br />
+     <div id="nav">
+      <ul>
+        <!-- OPTIONS FOR EVERYONE -->
+        <li><%= link_to 'Children', children_path %></li>
+        <li><%= link_to 'Chores', chores_path %></li>
+        <li><%= link_to 'Tasks', tasks_path %></li>
+      </ul>
+    </div> <!-- end of nav div -->
+    <div style="clear:both;"></div>
+      <div id="body">
+      <p style="color: green" id="notice"><%= flash[:notice] %></p>
+      <%= yield %>
+    </div> <!-- end of body div -->
+
+  </div><!-- end of wrap div -->
+</body>
+</html>
