@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @chore %>
+
+<div>
+  <%= link_to "Edit this chore", edit_chore_path(@chore) %> |
+  <%= link_to "Back to chores", chores_path %>
+
+  <%= button_to "Destroy this chore", @chore, method: :delete %>
+</div>
