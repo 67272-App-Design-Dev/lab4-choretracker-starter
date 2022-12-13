@@ -28,7 +28,7 @@ class ChoresController < ApplicationController
         format.html { redirect_to chore_url(@chore), notice: "Chore was successfully created." }
         format.json { render :show, status: :created, location: @chore }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
       end
     end
@@ -39,9 +39,9 @@ class ChoresController < ApplicationController
     respond_to do |format|
       if @chore.update(chore_params)
         format.html { redirect_to chore_url(@chore), notice: "Chore was successfully updated." }
-        format.json { render :show, status: :ok, location: @chore }
+        format.json { head :no_content }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +52,7 @@ class ChoresController < ApplicationController
     @chore.destroy
 
     respond_to do |format|
-      format.html { redirect_to chores_url, notice: "Chore was successfully destroyed." }
+      format.html { redirect_to chores_url }
       format.json { head :no_content }
     end
   end
@@ -63,7 +63,7 @@ class ChoresController < ApplicationController
       @chore = Chore.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def chore_params
       params.require(:chore).permit(:child_id, :task_id, :due_on, :completed)
     end
