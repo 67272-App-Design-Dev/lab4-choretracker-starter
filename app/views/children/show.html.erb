@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @child %>
+<p>
+  <strong>First name:</strong>
+  <%= @child.first_name %>
+</p>
 
-<div>
-  <%= link_to "Edit this child", edit_child_path(@child) %> |
-  <%= link_to "Back to children", children_path %>
+<p>
+  <strong>Last name:</strong>
+  <%= @child.last_name %>
+</p>
 
-  <%= button_to "Destroy this child", @child, method: :delete %>
-</div>
+<p>
+  <strong>Active:</strong>
+  <%= @child.active %>
+</p>
+
+<p>
+  <strong>Points earned:</strong>
+  <%= @child.points_earned %>
+</p>
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>
