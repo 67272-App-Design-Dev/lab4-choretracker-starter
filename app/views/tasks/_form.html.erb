@@ -1,32 +1,29 @@
-<%= form_with(model: task) do |form| %>
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :points, style: "display: block" %>
-    <%= form.number_field :points %>
+  <div class="field">
+    <%= f.label :points %><br>
+    <%= f.number_field :points %>
   </div>
-
-  <div>
-    <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>

@@ -2,9 +2,5 @@
 
 <%= render "form", task: @task %>
 
-<br>
-
-<div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
-</div>
+<%= link_to "Show", @task %> |
+<%= link_to "Back", tasks_path %>
