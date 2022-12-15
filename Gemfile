@@ -49,6 +49,10 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'byebug'
+  gem 'hirb'
   gem 'factory_bot_rails'
   gem 'simplecov'
   gem 'shoulda'
@@ -57,15 +61,15 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'
   gem 'rails-controller-testing'
+  gem 'cucumber-rails'
+  gem 'launchy'
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # # Access an IRB console on exception pages or by using <%= console %> anywhere in the code. [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
+  gem 'listen'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
+  gem 'spring-watcher-listen'
 end
