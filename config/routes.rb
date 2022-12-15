@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Generated routes for models
+  resources :chores
+  resources :tasks
+  resources :children
+  
+  # Setting default route
+  root to: 'chores#index'
+  
 end
