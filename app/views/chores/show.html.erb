@@ -1,10 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<%= render @chore %>
+<p>
+  <b>Child:</b>
+  <%= @chore.child_id %>
+</p>
 
-<div>
-  <%= link_to "Edit this chore", edit_chore_path(@chore) %> |
-  <%= link_to "Back to chores", chores_path %>
+<p>
+  <b>Task:</b>
+  <%= @chore.task_id %>
+</p>
 
-  <%= button_to "Destroy this chore", @chore, method: :delete %>
-</div>
+<p>
+  <b>Due on:</b>
+  <%= @chore.due_on %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%= @chore.completed %>
+</p>
+
+<%= link_to 'Edit', edit_chore_path(@chore) %> |
+<%= link_to 'Back', chores_path %>
