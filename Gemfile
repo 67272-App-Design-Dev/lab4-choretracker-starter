@@ -41,6 +41,18 @@ gem "bootsnap", '>= 1.4.4', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Other gems
+gem 'chronic'
+gem 'materialize-sass'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'cancancan'
+gem 'validates_timeliness', '~> 7.0.0.beta1' #Beta support for rails 7
+gem 'time_date_helpers'
+gem 'carrierwave'
+gem 'will_paginate'
+gem 'vuejs-rails'
+
 group :development, :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
@@ -49,19 +61,21 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
+  gem 'test-unit'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug'
   gem 'hirb'
+  gem 'faker'
+  gem 'populator'
   gem 'factory_bot_rails'
   gem 'simplecov'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  gem 'shoulda', '~> 4.0'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-reporters'
   gem 'rails-controller-testing'
-  gem 'cucumber-rails'
   gem 'launchy'
 end
 
