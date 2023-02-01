@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @task.points %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @task.active %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

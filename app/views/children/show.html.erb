@@ -1,0 +1,23 @@
+
+<p>
+  <strong>First name:</strong>
+  <%= @child.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @child.last_name %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @child.active %>
+</p>
+
+<p>
+  <strong>Points earned:</strong>
+  <%= @child.points_earned %>
+</p>
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>
