@@ -1,4 +1,1 @@
-json.array!(@tasks) do |task|
-  json.extract! task, :id, :name, :points, :active
-  json.url task_url(task, format: :json)
-end
+json.array! @tasks, partial: "tasks/task", as: :task

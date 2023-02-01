@@ -1,14 +1,12 @@
 class ChildrenController < ApplicationController
-  before_action :set_child, only: [:show, :edit, :update, :destroy]
+  before_action :set_child, only: %i[ show edit update destroy ]
 
-  # GET /children
-  # GET /children.json
+  # GET /children or /children.json
   def index
     @children = Child.all
   end
 
-  # GET /children/1
-  # GET /children/1.json
+  # GET /children/1 or /children/1.json
   def show
   end
 
@@ -21,42 +19,40 @@ class ChildrenController < ApplicationController
   def edit
   end
 
-  # POST /children
-  # POST /children.json
+  # POST /children or /children.json
   def create
     @child = Child.new(child_params)
 
     respond_to do |format|
       if @child.save
-        format.html { redirect_to @child, notice: "#{@child.name} was successfully created." }
-        format.json { render action: 'show', status: :created, location: @child }
+        format.html { redirect_to child_url(@child), notice: "#{@child.name} was successfully created." }
+        format.json { render :show, status: :created, location: @child }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @child.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /children/1
-  # PATCH/PUT /children/1.json
+  # PATCH/PUT /children/1 or /children/1.json
   def update
     respond_to do |format|
       if @child.update(child_params)
-        format.html { redirect_to @child, notice: "#{@child.name}'s record was updated." }
+        format.html { redirect_to child_url(@child), notice: "#{@child.name}'s record was updated." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @child.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /children/1
-  # DELETE /children/1.json
+  # DELETE /children/1 or /children/1.json
   def destroy
     @child.destroy
+
     respond_to do |format|
-      format.html { redirect_to children_url }
+      format.html { redirect_to children_url, notice: "Child was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -67,7 +63,7 @@ class ChildrenController < ApplicationController
       @child = Child.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow a list of trusted parameters through.
     def child_params
       params.require(:child).permit(:first_name, :last_name, :active)
     end
