@@ -171,13 +171,16 @@ Start by checking on the output of these tests once more with `rails test test/m
 2.  We need to create a test for the Task model. Open ChatGPT and use the following prompt:
 
     ```
-    I have a Ruby on Rails app that tracks children performing chores.  A chore is a task assigned to a child.  The Task schema is: "name" (string), "points" (integer), "active" (boolean).  I need a test suite for Task using Minitest and Shoulda matchers that:
+    I have a Ruby on Rails app that tracks children performing chores.  A chore is a task assigned to a child.
+    The Task schema is: "name" (string), "points" (integer), "active" (boolean).
+    I need a test suite for Task using Minitest and Shoulda matchers that:
 
     1. tests that a Task has_many :chores and has_many :children, through: :chores
     2. validates the presence of name
     3. requires points to be a positive integer
 
-    I also need the test suite to have a test for a scope that orders tasks alphabetically by name.  I also need a test for a scope that only selects active tasks.
+    I also need the test suite to have a test for a scope that orders tasks alphabetically by name.
+    I also need a test for a scope that only selects active tasks.
 
     ```
 
