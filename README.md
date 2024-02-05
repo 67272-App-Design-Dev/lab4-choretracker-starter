@@ -348,7 +348,9 @@ Rails Console is a great way to test your models informally or to debug issues t
 
 Run all three model tests by executing `rails test test/models` on the command line and make sure everything is passing.
 
-15. Before we go, let's check the testing coverage. To do this, go to the coverage directory of the project, open the file `index.html` in your browser, click on the models tab and view the coverage for your models. Standard procedure is to ensure 100% test coverage for all of our lines of code, but notice one of the models is not at 100%! This is because we added the `points_earned` method without any test cases (which is not good). Add in some test cases to ensure that this model is back up to 100% test coverage.
+15. Before we go, let's check the testing coverage. To do this, go to the coverage directory of the project, open the file `index.html` in your browser, click on the models tab and view the coverage for your models. Standard procedure is to ensure 100% test coverage for all of our lines of code; when you finish, this is what you should see:
+
+    ![](https://i.imgur.com/f8LZKfY.png)
 
 Then merge back to main and get the lab checked-off.
 
