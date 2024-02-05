@@ -346,7 +346,7 @@ Rails Console is a great way to test your models informally or to debug issues t
     end
     ```
 
-Run all three model tests by executing `rails test test/models` on the command line and make sure everything is passing.
+    Run all three model tests by executing `rails test test/models` on the command line and make sure everything is passing.
 
 15. Before we go, let's check the testing coverage. To do this, go to the coverage directory of the project, open the file `index.html` in your browser, click on the models tab and view the coverage for your models. Standard procedure is to ensure 100% test coverage for all of our lines of code; when you finish, this is what you should see:
 
