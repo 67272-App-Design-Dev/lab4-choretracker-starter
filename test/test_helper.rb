@@ -5,6 +5,10 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "minitest"
+require 'minitest/rails'
+require 'minitest/reporters'
+require 'minitest_extensions'
 require 'contexts'
 require 'shoulda/matchers'
 
@@ -36,4 +40,8 @@ class ActiveSupport::TestCase
       with.library :rails
     end
   end
+
+  # Spruce up minitest results...
+  Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
+
 end
