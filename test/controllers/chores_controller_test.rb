@@ -1,49 +1,48 @@
-require 'test_helper'
+require "test_helper"
 
-class ChoresControllerTest < ActionController::TestCase
+class ChoresControllerTest < ActionDispatch::IntegrationTest
   setup do
     @chore = chores(:one)
   end
 
   test "should get index" do
-    get :index
+    get chores_url
     assert_response :success
-    assert_not_nil assigns(:chores)
   end
 
   test "should get new" do
-    get :new
+    get new_chore_url
     assert_response :success
   end
 
   test "should create chore" do
-    assert_difference('Chore.count') do
-      post :create, chore: { child_id: @chore.child_id, completed: @chore.completed, due_on: @chore.due_on, task_id: @chore.task_id }
+    assert_difference("Chore.count") do
+      post chores_url, params: { chore: { child_id: @chore.child_id, completed: @chore.completed, due_on: @chore.due_on, task_id: @chore.task_id } }
     end
 
-    assert_redirected_to chore_path(assigns(:chore))
+    assert_redirected_to chore_url(Chore.last)
   end
 
   test "should show chore" do
-    get :show, id: @chore
+    get chore_url(@chore)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @chore
+    get edit_chore_url(@chore)
     assert_response :success
   end
 
   test "should update chore" do
-    patch :update, id: @chore, chore: { child_id: @chore.child_id, completed: @chore.completed, due_on: @chore.due_on, task_id: @chore.task_id }
-    assert_redirected_to chore_path(assigns(:chore))
+    patch chore_url(@chore), params: { chore: { child_id: @chore.child_id, completed: @chore.completed, due_on: @chore.due_on, task_id: @chore.task_id } }
+    assert_redirected_to chore_url(@chore)
   end
 
   test "should destroy chore" do
-    assert_difference('Chore.count', -1) do
-      delete :destroy, id: @chore
+    assert_difference("Chore.count", -1) do
+      delete chore_url(@chore)
     end
 
-    assert_redirected_to chores_path
+    assert_redirected_to chores_url
   end
 end
