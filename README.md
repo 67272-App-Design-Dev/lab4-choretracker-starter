@@ -9,6 +9,10 @@
 
 # Lab 4: ChoreTracker
 
+**This lab has been updated for Ruby 3.4.7 and Rails 8.1.1. Key changes from earlier versions are highlighted in bold throughout the lab.**
+
+**Note:** _the full set of lab instructions is also in the README file of the starter code provided below._
+
 ## Part 1
 
 1. Use git to clone the base project set up [on github](https://github.com/67272-App-Design-Dev/lab4-choretracker-starter) and **review the contents before proceeding**. Look at the ERD that is in the `doc/` directory. Basically, you have a project that has been scaffolded in accordance with the ERD, but there is essentially no model code apart from what comes with ApplicationRecord. In the first part we will be using Test Driven Development (TDD) to build out these models and verify that it is working. In the second part of the lab we will do some clean up of the views to take advantage of some of the model code we've written
@@ -27,7 +31,7 @@
 
    Commit these changes to git.
 
-   - Run `git branch` to see that you are on the main branch. Run the `rails db:migrate` command to generate the development database. Then run `rails db:test:prepare` to generate the test database. Once this is done, switch to a different branch called `models`.
+   - Run `git branch` to see that you are on the main branch. Run the `rails db:migrate` command to generate the development database. Once this is done, switch to a different branch called `models`.
 
 2. Now we are going to test the Child model by writing some unit tests. Open the `test/test_helper.rb` file and set the use of transactional fixtures to false by commenting out the line `fixtures :all`. At the very top of file, add in the support for [simple_cov](https://github.com/colszowka/simplecov) (a gem which will give us basic test coverage statistics) by adding the following lines:
 
@@ -123,7 +127,7 @@ Start by checking on the output of these tests once more with `rails test test/m
 
 2.  Add `validates_presence_of` validators for `first_name` and `last_name` and rerun your tests. You should have two more passing tests.
 
-    **Commit these changes to your repository**.
+    Commit these changes to your repository.
 
 3.  Create a new method in your `Child` model called `name` that returns "First Last":
 
@@ -152,7 +156,7 @@ Start by checking on the output of these tests once more with `rails test test/m
 
     ```
 
-    Re-run the tests and you should and they should all pass + 1 error (about missing the Chore model).
+    Re-run the tests and they should all pass (plus 1 error about the missing Chore model).
 
     Commit these changes to git.
 
@@ -171,7 +175,8 @@ Start by checking on the output of these tests once more with `rails test test/m
 2.  We need to create a test for the Task model. Open ChatGPT and use the following prompt:
 
     ```
-    I have a Ruby on Rails app that tracks children performing chores.  A chore is a task assigned to a child.
+    I have a Ruby on Rails app that tracks children performing chores.
+    A chore is a task assigned to a child.
     The Task schema is: "name" (string), "points" (integer), "active" (boolean).
     I need a test suite for Task using Minitest and Shoulda matchers that:
 
@@ -196,7 +201,7 @@ Start by checking on the output of these tests once more with `rails test test/m
 
     Note also that it is not using Factories (of course, we didn't tell ChatGPT we had factories or using FactoryBot). Again for a simple model like `Task` with few fields, we can create it all from scratch every time, but as the model gets larger, it'd be nice to have default values to work with and make the process of stamping out new objects easier and faster.
 
-    **In any case, once the tests for Tast all pass and are committed, switch back and merge with `main`.**
+    In any case, once the tests for Task all pass and are committed, switch back and merge with `main`.
 
 3.  Switch back to the `models` branch. This time before doing any testing of `Chore` we are going use the Rails Console for testing. Start by accessing it in the command line with the command:
 
@@ -237,11 +242,11 @@ Start by checking on the output of these tests once more with `rails test test/m
 
 11. Now type `b.first_name = 'Becca'` and then `b.save!` and see this fails because no last name is specified.
 
-Add a last name and see the child object does indeed save.
+    Add a last name and see the child object does indeed save.
 
-Rails Console is a great way to test your models informally or to debug issues that are happening on the back end.
+    Rails Console is a great way to test your models informally or to debug issues that are happening on the back end.
 
-**Note: this is _not_ a substitute for unit testing, but it is a great way to quickly and informally figure out problems with your code and better understand the output of Rails methods.**
+    **Note:** this is _not_ a substitute for unit testing, but it is a great way to quickly and informally figure out problems with your code and better understand the output of Rails methods.
 
 12. There are some great resources online regarding the Rails Console - below are two articles that you might want to check out later:
 
@@ -314,7 +319,7 @@ Rails Console is a great way to test your models informally or to debug issues t
 
   Hint: The scope :by_task is different than other scopes you've seen and you will need to use a join because `name` is in `Task` and not `Chore`. If you're stuck on this, ask a TA for help.
 
-  **Once these tests all pass, merge the code back into the `main` branch.**
+  Once these tests all pass, merge the code back into the `main` branch.
 
 14. Now go back to the Child model and create a new method called `points_earned` that returns the points a child has earned for completed chores. Below is the test this method should pass and note that we didn't create tasks and chores in setup (_all tests don't need them_), we have to do so for this one test. (Be sure to add this to `test/models/child_test.rb)`
 
@@ -352,7 +357,7 @@ Rails Console is a great way to test your models informally or to debug issues t
 
     ![](https://i.imgur.com/f8LZKfY.png)
 
-Then merge back to main and get the lab checked-off.
+    Then merge back to main and get the lab checked-off.
 
 ---
 
@@ -364,7 +369,7 @@ Then merge back to main and get the lab checked-off.
 
 **This last section can be skipped for now if you are running out of time in lab, but a good idea to go back to later in prep for phase 3.**
 
-1.  Now that we have a working Chore model, go to rails console and run the `create_chores` method to populate the system with some chores. [**Note**: If you didn't have rails console running on a separate tab and are restarting it, you will need to (a) run `Child.destroy_all` and `Task.destroy_all` to clear the old records, then (b) require `factory_girl_rails` and the context again (see above), and then (c) run all three create_ methods (children, tasks, chores) to populate the database.]
+1.  Now that we have a working Chore model, go to rails console and run the `create_chores` method to populate the system with some chores. [**Note**: If you didn't have rails console running on a separate tab and are restarting it, you will need to (a) run `Child.destroy_all` and `Task.destroy_all` to clear the old records, then (b) **require `factory_bot_rails`** and the context again (see above), and then (c) run all three create_ methods (children, tasks, chores) to populate the database.]
 
 2.  We can now test the basic application in the browser by starting up the server with `rails server` and going to http://localhost:3000 in the browser. If there are problems, see a TA for help.
 

@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.4"
+ruby "3.4.7"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
+gem "rails", "8.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -47,7 +47,7 @@ gem 'materialize-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'cancancan'
-gem 'validates_timeliness', '~> 7.0.0.beta1' #Beta support for rails 7
+gem 'validates_timeliness'
 gem 'time_date_helpers'
 gem 'carrierwave'
 gem 'will_paginate'
@@ -70,8 +70,8 @@ group :development, :test do
   gem 'populator'
   gem 'factory_bot_rails'
   gem 'simplecov'
-  gem 'shoulda', '~> 4.0'
-  gem 'shoulda-matchers', '~> 4.0'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'minitest'
   gem 'minitest-rails'
   gem 'minitest-reporters'
