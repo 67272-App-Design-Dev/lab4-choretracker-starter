@@ -1,14 +1,12 @@
 class ChoresController < ApplicationController
-  before_action :set_chore, only: [:show, :edit, :update, :destroy]
+  before_action :set_chore, only: %i[ show edit update destroy ]
 
-  # GET /chores
-  # GET /chores.json
+  # GET /chores or /chores.json
   def index
     @chores = Chore.all
   end
 
-  # GET /chores/1
-  # GET /chores/1.json
+  # GET /chores/1 or /chores/1.json
   def show
   end
 
@@ -21,40 +19,38 @@ class ChoresController < ApplicationController
   def edit
   end
 
-  # POST /chores
-  # POST /chores.json
+  # POST /chores or /chores.json
   def create
     @chore = Chore.new(chore_params)
 
     respond_to do |format|
       if @chore.save
-        format.html { redirect_to @chore, notice: 'Chore was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @chore }
+        format.html { redirect_to chore_url(@chore), notice: "Chore was successfully created." }
+        format.json { render :show, status: :created, location: @chore }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /chores/1
-  # PATCH/PUT /chores/1.json
+  # PATCH/PUT /chores/1 or /chores/1.json
   def update
     respond_to do |format|
       if @chore.update(chore_params)
-        format.html { redirect_to @chore, notice: 'Chore was successfully updated.' }
+        format.html { redirect_to chore_url(@chore), notice: "Chore was successfully updated." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @chore.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /chores/1
-  # DELETE /chores/1.json
+  # DELETE /chores/1 or /chores/1.json
   def destroy
     @chore.destroy
+
     respond_to do |format|
       format.html { redirect_to chores_url }
       format.json { head :no_content }
