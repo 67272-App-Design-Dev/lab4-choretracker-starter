@@ -1,4 +1,4 @@
-ChoreTracker::Application.routes.draw do
+Rails.application.routes.draw do
   # Generated routes for models
   resources :chores
   resources :tasks
@@ -7,5 +7,4 @@ ChoreTracker::Application.routes.draw do
   # Setting default route
   root to: 'chores#index'
   
-
 end
